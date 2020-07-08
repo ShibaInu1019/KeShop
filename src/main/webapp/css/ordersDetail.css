@@ -1,0 +1,24 @@
+@CHARSET "UTF-8";
+#main .ordersDetailLogo{
+	width:98%;
+	margin:0 auto;
+}
+#main .ordersDetailLogo{
+	margin:10px;
+}
+
+#main .ordersDetailContent .orderInfoTable tr{
+	background:#F8F3F7;
+}
+
+#main .ordersDetailContent .orderDetailTable{
+	text-align:center;
+}
+#main .ordersDetailContent .orderDetailTable caption{
+	font-size:20px;
+	padding:10px 0;
+	letter-spacing:10px;
+}
+#main .ordersDetailContent .backDiv{
+	text-align:center;
+}

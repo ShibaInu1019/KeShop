@@ -1,0 +1,8 @@
+@charset "UTF-8";
+#failInfo table{
+	width:60%;
+	margin: auto;
+	color:red;
+	font-size:28px;
+}
+

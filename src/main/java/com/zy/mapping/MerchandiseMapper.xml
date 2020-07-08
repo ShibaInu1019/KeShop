@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zy.mapper.MerchandiseMapper">
+  <resultMap id="BaseResultMap" type="com.zy.entity.Merchandise">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="merName" jdbcType="VARCHAR" property="mername" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="sprice" jdbcType="DECIMAL" property="sprice" />
+    <result column="merModel" jdbcType="VARCHAR" property="mermodel" />
+    <result column="picture" jdbcType="VARCHAR" property="picture" />
+    <result column="manufacturer" jdbcType="VARCHAR" property="manufacturer" />
+    <result column="leaveFactoryDate" jdbcType="TIMESTAMP" property="leavefactorydate" />
+    <result column="special" jdbcType="VARCHAR" property="special" />
+    <result column="category" jdbcType="VARCHAR" property="category" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.zy.entity.Merchandise">
+    <result column="merDesc" jdbcType="LONGVARCHAR" property="merdesc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, merName, price, sprice, merModel, picture, manufacturer, leaveFactoryDate, special, 
+    category
+  </sql>
+  <sql id="Blob_Column_List">
+    merDesc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from merchandise
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from merchandise
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zy.entity.Merchandise">
+    insert into merchandise (id, merName, price, 
+      sprice, merModel, picture, 
+      manufacturer, leaveFactoryDate, special, 
+      category, merDesc)
+    values (#{id,jdbcType=INTEGER}, #{mername,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
+      #{sprice,jdbcType=DECIMAL}, #{mermodel,jdbcType=VARCHAR}, #{picture,jdbcType=VARCHAR}, 
+      #{manufacturer,jdbcType=VARCHAR}, #{leavefactorydate,jdbcType=TIMESTAMP}, #{special,jdbcType=VARCHAR}, 
+      #{category,jdbcType=VARCHAR}, #{merdesc,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zy.entity.Merchandise">
+    insert into merchandise
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="mername != null">
+        merName,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="sprice != null">
+        sprice,
+      </if>
+      <if test="mermodel != null">
+        merModel,
+      </if>
+      <if test="picture != null">
+        picture,
+      </if>
+      <if test="manufacturer != null">
+        manufacturer,
+      </if>
+      <if test="leavefactorydate != null">
+        leaveFactoryDate,
+      </if>
+      <if test="special != null">
+        special,
+      </if>
+      <if test="category != null">
+        category,
+      </if>
+      <if test="merdesc != null">
+        merDesc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="mername != null">
+        #{mername,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="sprice != null">
+        #{sprice,jdbcType=DECIMAL},
+      </if>
+      <if test="mermodel != null">
+        #{mermodel,jdbcType=VARCHAR},
+      </if>
+      <if test="picture != null">
+        #{picture,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturer != null">
+        #{manufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="leavefactorydate != null">
+        #{leavefactorydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="special != null">
+        #{special,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null">
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="merdesc != null">
+        #{merdesc,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zy.entity.Merchandise">
+    update merchandise
+    <set>
+      <if test="mername != null">
+        merName = #{mername,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="sprice != null">
+        sprice = #{sprice,jdbcType=DECIMAL},
+      </if>
+      <if test="mermodel != null">
+        merModel = #{mermodel,jdbcType=VARCHAR},
+      </if>
+      <if test="picture != null">
+        picture = #{picture,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturer != null">
+        manufacturer = #{manufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="leavefactorydate != null">
+        leaveFactoryDate = #{leavefactorydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="special != null">
+        special = #{special,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null">
+        category = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="merdesc != null">
+        merDesc = #{merdesc,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zy.entity.Merchandise">
+    update merchandise
+    set merName = #{mername,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      sprice = #{sprice,jdbcType=DECIMAL},
+      merModel = #{mermodel,jdbcType=VARCHAR},
+      picture = #{picture,jdbcType=VARCHAR},
+      manufacturer = #{manufacturer,jdbcType=VARCHAR},
+      leaveFactoryDate = #{leavefactorydate,jdbcType=TIMESTAMP},
+      special = #{special,jdbcType=VARCHAR},
+      category = #{category,jdbcType=VARCHAR},
+      merDesc = #{merdesc,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zy.entity.Merchandise">
+    update merchandise
+    set merName = #{mername,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      sprice = #{sprice,jdbcType=DECIMAL},
+      merModel = #{mermodel,jdbcType=VARCHAR},
+      picture = #{picture,jdbcType=VARCHAR},
+      manufacturer = #{manufacturer,jdbcType=VARCHAR},
+      leaveFactoryDate = #{leavefactorydate,jdbcType=TIMESTAMP},
+      special = #{special,jdbcType=VARCHAR},
+      category = #{category,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  
+  <select id="selectMerAll" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from merchandise
+  </select>
+  
+  
+  <select id="selectBySpecial" parameterType="java.lang.Integer"  resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from merchandise
+    where special=#{special}
+  </select>
+  
+  <select id="findMerListById"   resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from merchandise
+    where 1=1 
+    <if test="nameKey != '商品关键字'   and nameKey != null and nameKey !='' ">
+    and merName like concat('%',#{nameKey},'%')
+    </if>
+    <if test="selKey !='所有商品' and selKey != null and selKey !=''">
+    and category = #{selKey}
+    </if>
+  </select>
+</mapper>

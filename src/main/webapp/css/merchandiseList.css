@@ -1,0 +1,40 @@
+@CHARSET "UTF-8";
+#main .merListLogo{
+	width:98%;
+	margin:0 auto;
+}
+#main .merListLogo{
+	margin:10px;
+}
+
+#main .merListContent .merListTable{
+	text-align:center;
+	line-height:25px;
+}
+#main .merListContent .merListTable .tr1{
+	height:50px;
+	font-size:22px;
+}
+#main .merListContent .merListTable .td1{
+	width:15%;
+}
+#main .merListContent .merListTable .table_hr{
+	height:5px;
+	background-color:#F5F5F5;
+}
+
+#main .merListContent .merListTable .td2{
+	width:15%;
+}
+#main .merListContent .merListTable .td3{
+	width:50%;
+}
+#main .merListContent .merListTable .td4{
+	width:20%;
+}
+#main .merListContent .merListTable .merImg{
+	width:80px;
+	widows:80px;
+	border:1px solid black;
+	padding:10px;
+}

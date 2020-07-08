@@ -1,0 +1,41 @@
+@CHARSET "UTF-8";
+#main .merListLogo{
+	width:98%;
+	margin:0 auto;
+}
+#main .merListLogo{
+	margin:10px;
+}
+
+#main .cartStatusImgDiv{
+	
+	height:58px;
+	padding-left:20px;
+}
+#main .cartStatusImgDiv span,
+#main .cartStatusImgDiv img
+{
+	float:left;
+	margin-right:30px;
+}
+
+#main .cartStatusImgDiv span{
+	margin-top:16px;
+	width:140px;
+	text-align:center;
+	height:26px;
+	border-radius:15px;
+	line-height:26px;
+}
+#main .cartStatusImgDiv .hrImg{
+	margin-top:11px;
+}
+
+#main .cartStatusImgDiv .activeSpanBackground{
+	background-color:#3F82C6;
+}
+#main .cartStatusImgDiv .disabledSpanBackground{
+	background-color:#E4E4E4;
+}
+
+

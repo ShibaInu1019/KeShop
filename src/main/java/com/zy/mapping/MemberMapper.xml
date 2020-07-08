@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zy.mapper.MemberMapper">
+  <resultMap id="BaseResultMap" type="com.zy.entity.Member">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="memberlevel" jdbcType="INTEGER" property="memberlevel" />
+    <result column="loginName" jdbcType="VARCHAR" property="loginname" />
+    <result column="loginPwd" jdbcType="VARCHAR" property="loginpwd" />
+    <result column="memberName" jdbcType="VARCHAR" property="membername" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="zip" jdbcType="VARCHAR" property="zip" />
+    <result column="regDate" jdbcType="TIMESTAMP" property="regdate" />
+    <result column="lastDate" jdbcType="TIMESTAMP" property="lastdate" />
+    <result column="loginTimes" jdbcType="INTEGER" property="logintimes" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, memberlevel, loginName, loginPwd, memberName, phone, address, zip, regDate, lastDate, 
+    loginTimes, email
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from member
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from member
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zy.entity.Member">
+    insert into member (id, memberlevel, loginName, 
+      loginPwd, memberName, phone, 
+      address, zip, regDate, 
+      lastDate, loginTimes, email
+      )
+    values (#{id,jdbcType=INTEGER}, #{memberlevel,jdbcType=INTEGER}, #{loginname,jdbcType=VARCHAR}, 
+      #{loginpwd,jdbcType=VARCHAR}, #{membername,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{zip,jdbcType=VARCHAR}, #{regdate,jdbcType=TIMESTAMP}, 
+      #{lastdate,jdbcType=TIMESTAMP}, #{logintimes,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zy.entity.Member">
+    insert into member
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="memberlevel != null">
+        memberlevel,
+      </if>
+      <if test="loginname != null">
+        loginName,
+      </if>
+      <if test="loginpwd != null">
+        loginPwd,
+      </if>
+      <if test="membername != null">
+        memberName,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="zip != null">
+        zip,
+      </if>
+      <if test="regdate != null">
+        regDate,
+      </if>
+      <if test="lastdate != null">
+        lastDate,
+      </if>
+      <if test="logintimes != null">
+        loginTimes,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="memberlevel != null">
+        #{memberlevel,jdbcType=INTEGER},
+      </if>
+      <if test="loginname != null">
+        #{loginname,jdbcType=VARCHAR},
+      </if>
+      <if test="loginpwd != null">
+        #{loginpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="membername != null">
+        #{membername,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="zip != null">
+        #{zip,jdbcType=VARCHAR},
+      </if>
+      <if test="regdate != null">
+        #{regdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastdate != null">
+        #{lastdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logintimes != null">
+        #{logintimes,jdbcType=INTEGER},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zy.entity.Member">
+    update member
+    <set>
+      <if test="memberlevel != null">
+        memberlevel = #{memberlevel,jdbcType=INTEGER},
+      </if>
+      <if test="loginname != null">
+        loginName = #{loginname,jdbcType=VARCHAR},
+      </if>
+      <if test="loginpwd != null">
+        loginPwd = #{loginpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="membername != null">
+        memberName = #{membername,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="zip != null">
+        zip = #{zip,jdbcType=VARCHAR},
+      </if>
+      <if test="regdate != null">
+        regDate = #{regdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastdate != null">
+        lastDate = #{lastdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logintimes != null">
+        loginTimes = #{logintimes,jdbcType=INTEGER},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zy.entity.Member">
+    update member
+    set memberlevel = #{memberlevel,jdbcType=INTEGER},
+      loginName = #{loginname,jdbcType=VARCHAR},
+      loginPwd = #{loginpwd,jdbcType=VARCHAR},
+      memberName = #{membername,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      zip = #{zip,jdbcType=VARCHAR},
+      regDate = #{regdate,jdbcType=TIMESTAMP},
+      lastDate = #{lastdate,jdbcType=TIMESTAMP},
+      loginTimes = #{logintimes,jdbcType=INTEGER},
+      email = #{email,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  
+  
+  <sql id="login_Column_List">
+    m.id, m.memberlevel, m.loginName, m.loginPwd, m.memberName, m.phone, m.address, m.zip, m.regDate, m.lastDate, 
+    m.loginTimes, m.email,me.levelName,me.favourable
+  </sql>
+  
+  <resultMap id="loginResultMap" type="com.zy.entity.Member">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="memberlevel" jdbcType="INTEGER" property="memberlevel" />
+    <result column="loginName" jdbcType="VARCHAR" property="loginname" />
+    <result column="loginPwd" jdbcType="VARCHAR" property="loginpwd" />
+    <result column="memberName" jdbcType="VARCHAR" property="membername" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="zip" jdbcType="VARCHAR" property="zip" />
+    <result column="regDate" jdbcType="TIMESTAMP" property="regdate" />
+    <result column="lastDate" jdbcType="TIMESTAMP" property="lastdate" />
+    <result column="loginTimes" jdbcType="INTEGER" property="logintimes" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <association property="ml" javaType="Menberlever">
+    	 <id column="id" jdbcType="INTEGER" property="id" />
+    	<result column="levelName" jdbcType="VARCHAR" property="levelname" />
+    	<result column="favourable" jdbcType="VARCHAR" property="favourable" />
+    </association>
+  </resultMap>
+  
+  <select id="login" parameterType="com.zy.entity.Member" resultMap="loginResultMap">
+    select 
+    <include refid="login_Column_List" />
+    from member m,menberlever me
+    where me.id = m.memberlevel and m.loginName = #{loginname} and   m.loginPwd = #{loginpwd}
+  </select>
+  
+</mapper>

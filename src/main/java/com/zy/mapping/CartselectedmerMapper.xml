@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zy.mapper.CartselectedmerMapper">
+	<resultMap id="BaseResultMap"
+		type="com.zy.entity.Cartselectedmer">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="cart" jdbcType="INTEGER" property="cart" />
+		<result column="merchandise" jdbcType="INTEGER"
+			property="merchandise" />
+		<result column="number" jdbcType="INTEGER" property="number" />
+		<result column="price" jdbcType="DECIMAL" property="price" />
+		<result column="money" jdbcType="DECIMAL" property="money" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, cart, merchandise, number, price, money
+	</sql>
+	<select id="selectByPrimaryKey"
+		parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from cartselectedmer
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey"
+		parameterType="java.lang.Integer">
+		delete from cartselectedmer
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert"
+		parameterType="com.zy.entity.Cartselectedmer">
+		insert into cartselectedmer (id, cart, merchandise,
+		number, price, money
+		)
+		values (#{id,jdbcType=INTEGER}, #{cart,jdbcType=INTEGER},
+		#{merchandise,jdbcType=INTEGER},
+		#{number,jdbcType=INTEGER}, #{price,jdbcType=DECIMAL}, #{money,jdbcType=DECIMAL}
+		)
+	</insert>
+	<insert id="insertSelective"
+		parameterType="com.zy.entity.Cartselectedmer">
+		insert into cartselectedmer
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="cart != null">
+				cart,
+			</if>
+			<if test="merchandise != null">
+				merchandise,
+			</if>
+			<if test="number != null">
+				number,
+			</if>
+			<if test="price != null">
+				price,
+			</if>
+			<if test="money != null">
+				money,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="cart != null">
+				#{cart,jdbcType=INTEGER},
+			</if>
+			<if test="merchandise != null">
+				#{merchandise,jdbcType=INTEGER},
+			</if>
+			<if test="number != null">
+				#{number,jdbcType=INTEGER},
+			</if>
+			<if test="price != null">
+				#{price,jdbcType=DECIMAL},
+			</if>
+			<if test="money != null">
+				#{money,jdbcType=DECIMAL},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective"
+		parameterType="com.zy.entity.Cartselectedmer">
+		update cartselectedmer
+		<set>
+			<if test="cart != null">
+				cart = #{cart,jdbcType=INTEGER},
+			</if>
+			<if test="merchandise != null">
+				merchandise = #{merchandise,jdbcType=INTEGER},
+			</if>
+			<if test="number != null">
+				number = #{number,jdbcType=INTEGER},
+			</if>
+			<if test="price != null">
+				price = #{price,jdbcType=DECIMAL},
+			</if>
+			<if test="money != null">
+				money = #{money,jdbcType=DECIMAL},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey"
+		parameterType="com.zy.entity.Cartselectedmer">
+		update cartselectedmer
+		set cart = #{cart,jdbcType=INTEGER},
+		merchandise = #{merchandise,jdbcType=INTEGER},
+		number = #{number,jdbcType=INTEGER},
+		price = #{price,jdbcType=DECIMAL},
+		money = #{money,jdbcType=DECIMAL}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+
+
+	<resultMap id="cartResultMap"
+		type="com.zy.entity.Cartselectedmer">
+		<id column="c_id" jdbcType="INTEGER" property="id" />
+		<result column="c_cart" jdbcType="INTEGER" property="cart" />
+		<result column="c_merchandise" jdbcType="INTEGER"
+			property="merchandise" />
+		<result column="c_number" jdbcType="INTEGER" property="number" />
+		<result column="c_price" jdbcType="DECIMAL" property="price" />
+		<result column="c_money" jdbcType="DECIMAL" property="money" />
+
+		<result column="m_merName" jdbcType="VARCHAR" property="mername" />
+		<result column="m_price" jdbcType="DECIMAL" property="mprice" />
+	</resultMap>
+
+	<select id="findCartSelect" parameterType="java.lang.Integer"
+		resultMap="cartResultMap">
+		select
+		c.id as c_id, c.cart as c_cart, c.merchandise as c_merchandise, c.number as c_number, c.price as c_price, c.money as c_money,m.merName as m_merName,m.price as m_price
+		from cartselectedmer c,merchandise m
+		where c.merchandise=m.id and c.cart = #{id,jdbcType=INTEGER}
+	</select>
+	
+	<select id="selectFromCart" 
+		resultMap="cartResultMap">
+		select
+		c.id as c_id, c.cart as c_cart, c.merchandise as c_merchandise, c.number as c_number, c.price as c_price, c.money as c_money,m.merName as m_merName,m.price as m_price
+		from cartselectedmer c,merchandise m
+		where c.merchandise=m.id and c.cart = #{cartid,jdbcType=INTEGER} and c.merchandise = #{merid,jdbcType=INTEGER} 
+	</select>
+
+
+<update id="updateByPrimaryKeySelectiveOne"
+		parameterType="com.zy.entity.Cartselectedmer">
+		update cartselectedmer
+		<set>
+			<if test="cart != null">
+				cart = #{cart,jdbcType=INTEGER},
+			</if>
+			<if test="merchandise != null">
+				merchandise = #{merchandise,jdbcType=INTEGER},
+			</if>
+			<if test="number != null">
+				number = #{number,jdbcType=INTEGER},
+			</if>
+			<if test="price != null">
+				price = #{price,jdbcType=DECIMAL},
+			</if>
+			<if test="money != null">
+				money = #{money,jdbcType=DECIMAL},
+			</if>
+		</set>
+		where cart = #{cart,jdbcType=INTEGER} and
+		merchandise = #{merchandise,jdbcType=INTEGER}
+	</update>
+	
+	
+	<delete id="deleteByCart"
+		parameterType="java.lang.Integer">
+		delete from cartselectedmer
+		where cart = #{id,jdbcType=INTEGER}
+	</delete>
+	
+</mapper>

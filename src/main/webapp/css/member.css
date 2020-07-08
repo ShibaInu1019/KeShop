@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+#main .memberLogo{
+	width:98%;
+	margin:0 auto;
+}
+#main .memberLogo{
+	margin:10px;
+}
+
+#main .memberContent{
+	
+}
+#main .memberContent .memberTable tr{
+	background:#F8F3F7;
+}
+
+#main .memberContent .saveDiv{
+	text-align:center;
+	padding:10px 0;
+}
+#main .memberContent .saveDiv button{
+	width:73px;
+	height:23px;
+	border:none;
+	background:url("../images/button2.gif");
+}

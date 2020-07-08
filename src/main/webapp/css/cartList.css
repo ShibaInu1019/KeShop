@@ -1,0 +1,31 @@
+@CHARSET "UTF-8";
+
+
+#main .cartContent .cartTable{
+	text-align:center;
+	margin-bottom:20px;
+}
+#main .cartContent .cartTable tr1{
+	height:30px;
+	
+}
+#main .cartContent .cartTable input{
+	width:100px;
+	
+}
+#main .cartContent .cartTable .totalInfo td{
+	margin:10px 0;
+	
+}
+#main .cartContent .cartTable .totalInfo td span,
+#main .cartContent .cartTable .totalInfo td img{
+	float:left;
+}
+#main .cartContent .cartTable .totalInfo td img{
+	margin-left:400px;
+	margin-right:10px;
+}
+
+#main .cartContent .cartTable .operatorButton{
+	text-align:right;
+}

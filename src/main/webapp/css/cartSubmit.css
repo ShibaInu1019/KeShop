@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+
+.cartTable .duiHao{
+	text-align:center;
+	background-color:white;
+}
+.cartTable .duiHao img{
+	width:75px;
+	height:75px;
+}
+
+.cartTable tr{
+	height:50px;
+	background-color:#F8F3F7;
+}

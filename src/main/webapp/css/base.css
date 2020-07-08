@@ -1,0 +1,118 @@
+@CHARSET "UTF-8";
+/*通用样式---------*/
+table{
+	width:100%;
+}
+table td{
+	border:1px solid #FCFCFC;
+}
+table tr{
+	height:30px;
+}
+.table_th_bg{
+	background:#F8F3F7;
+}
+.font_red{
+	color:red;
+}
+a{
+	text-decoration:none;
+	color:black;
+}
+a:HOVER{
+	color:red;
+	text-decoration:underline;
+}
+
+.leftTD{
+	width:40%;
+	text-align:right;
+}
+/*通用样式---------*/
+body{
+	margin: 0px;
+	
+}
+#box{
+	width:80%;
+	
+	border:1px solid red;
+	margin: 0 auto;
+}
+#box #header{
+	height:100px;
+	position:relative;
+}
+#header .searchDiv{
+	width: 38%;
+	height:50px;
+	float:right;
+	margin-top:50px;
+}
+#header .navLeft{
+	float:left;
+	margin-top:10px;
+	margin-left:15px;
+}
+
+
+
+#box #menu{
+	height:35px;
+	position:relative;
+	z-index:10;
+}
+#menu .navigatorDiv{
+	width:96%;
+	background:url("../images/header_menu_02.gif");
+	height:100%;
+	margin:0 auto;
+	border-radius:5px;
+}
+#menu .navigatorDiv ul{
+	
+	list-style:none;
+	padding:0px;
+	height:100%;
+	padding-left:180px;
+} 
+#menu .navigatorDiv ul li{
+	float:left;
+	margin-right:50px;
+	line-height:35px;
+}
+#menu .navigatorDiv ul li a{
+	color:white;
+	font-size:15px;
+	text-decoration:none;
+	font-weight:500;
+}
+#menu .navigatorDiv ul li a:HOVER{
+	color:red;
+	text-decoration:underline;
+}
+
+
+
+#box #main{
+	position:relative;
+}
+
+
+
+
+#box #footer{
+	height:35px;
+	position:relative;
+}
+#footer .footerCopyDiv{
+	width:100%;
+	height:100%;
+	background:url("../images/header_menu_02.gif");
+	margin:0 auto;
+	boder-radius:5px;
+	text-align:center;
+	line-height:35px;
+	color:white;
+	margin-top:10px;
+}

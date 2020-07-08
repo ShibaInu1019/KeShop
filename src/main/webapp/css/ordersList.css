@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+
+#main{
+	height:300px;
+}
+#main .ordersLogo{
+	width:98%;
+	margin:0 auto;
+}
+#main .ordersLogo img{
+	margin:10px;
+}
+#main .ordersListContent{
+	width:98%;
+	margin:0 auto;
+}
+#main .ordersListContent table{
+	text-align:center;
+}
